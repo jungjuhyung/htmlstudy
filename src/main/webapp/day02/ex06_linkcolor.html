@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<!-- style태그를 통해 한번에 적용해준다. -->
+		<style type="text/css">
+			p{font-size: 20px;}
+			/* a태그는 인라인 레벨이기 때문에 텍스트 영영만 변경된다. */
+			a:link{color: black;}
+			a:visited{color: black;}
+			a:active{color: black;}
+			a:hover{background-color: yellow;}
+			a{text-decoration: none;}
+		</style>
+	</head>
+	<body>
+		<!--
+		- 한번도 방문한 적이 없는 사이트나 문서 : 밑줄, blue
+		- 한번이라도 방문한 적이 있는 사이트나 문서 : 밑줄, purple
+		- 이동하기 위해서 마우스로 눌렀을 때 : 밑줄, red
+	
+		a 태그 속성
+		해당 작성 방식은 <style> 태그로 작성되는 속성이다.
+		링크의 색상을 변경할 때 사용
+		a:link{}     => 일반적인 링크 속성(blue) 지정 및 변경
+		a:visited{}  => 방문한 적이 있는 링크 속성(purple) 지정 및 변경
+		a:active{}   => 클릭한 상태의 링크 속성(red) 지정 및 변경
+		a:hover{}    => 마우스를 해당 영역에 올렸을 때 속성 지정 및 변경
+		
+		나중에 메뉴판 만들면 링크를 줘야하는데 이때 밑줄이 생기는걸 없앨 수 있다.
+		** text-decoration : none; => 링크의 밑줄이 삭제됨
+		-->
+		<p><a href="ex03_color.html">문서</a></p>
+		
+		
+	</body>
+</html>

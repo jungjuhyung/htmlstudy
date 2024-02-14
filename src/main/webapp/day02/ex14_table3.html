@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테이블 지정 꾸미기</title>
+<style>
+table,th,td {border: 1px solid gray; border-collapse: collapse;}
+table{width: 60%; margin: 0px auto;}
+td{text-align: center;}
+th,td{padding: 1px;}
+
+/* 지정태그:nth-child(인자){속성} => 지정한 태그의 형제들의 요소를 인자로 정한 조건에 따라 속성을 부여하는 CSS속성
+지정태그 : tr로 하면 수평, td로 하면 수직으로 속성을 부여한다.
+인자 : odd(홀수), even(짝수)), 정수(특정 위치 지정)
+thead와 tbody 같은 부모 태그는 따로 적용한다.
+위치값은 1부터 시작한다.*/
+tr:nth-child(odd){background-color: skyblue;}
+tr:nth-child(even){background-color: skyblue;}
+tr:nth-child(3){background-color: skyblue;}
+</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Points</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Peter</td>
+				<td>Griffin</td>
+				<td>$100</td>
+			</tr>
+			<tr>
+				<td>Lois</td>
+				<td>Griffin</td>
+				<td>$150</td>
+			</tr>
+			<tr>
+				<td>Joe</td>
+				<td>Swanson</td>
+				<td>$300</td>
+			</tr>
+			<tr>
+				<td>Cleveland</td>
+				<td>Griffin</td>
+				<td>$250</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
