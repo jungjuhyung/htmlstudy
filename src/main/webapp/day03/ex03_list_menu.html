@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ul태그를 이용한 메뉴 만들기</title>
+		<style type="text/css">
+			ul{
+				list-style-type: none;
+				background-color: #777777;
+				overflow: hidden;
+				padding: 0px;
+				margin: 0px;
+			}
+			/* 메뉴 왼쪽 한줄로 만들기  */
+			li{
+				float: left;
+			}
+			a{
+				text-decoration: none;
+				padding: 16px 50px;
+				/*블록 레벨로 만들기, 블록으로 만들어야 각 링크태그영역 전체를 설정 가능*/
+				display: block;
+				color: white;
+			}
+			a:hover {
+				/*마우스를 가져다댔을 때 아래 밑줄이 나오는 효과*/
+				border-bottom: 5px solid skyblue;
+				
+				background-color: #333333;
+				
+				/*마우스를 가져다댔을 때 글자가 커지는 효과, 현재는 블록도 같이 커지는 문제가 있음*/
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>네비게이션 메뉴</h2>
+		<p>In this emaple,
+		we use CSS to style the list horizontally,
+		to create a navigation menu:</p>
+		
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">News</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">About</a></li>
+		
+		</ul>
+		
+		
+		
+	</body>
+</html>

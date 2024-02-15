@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>class선택자 속성</title>
+		<style type="text/css">
+			/*요소선택자 : 태그 선택*/
+			h2{
+				background-color: yellow;
+			}
+			
+			/*다수의 특정 요소를 선택하는 선택자 class, 하나여도 사용은 가능하다.*/
+			.fg_01{
+				color: red;
+			}
+			
+			.bg_01{
+				background-color: #d3ffff;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<!--
+		동일한 클래스이름을 가진 여러개의 요소를 선택하거나 동일한 스타일을 적용할 때 사용
+		<style>에서는 class를 .(점) 으로 표현한다.
+		<javascript>에서는 document.getElementByClassName("클래스명")으로 사용
+		** CSS, javascript, jQuery, ajax에서 id선택자와 함께 모두 사용된다.
+		-->
+		<h2 class="fg_01">한국 ICT 인재 개발원(fg)</h2>
+		<h2>한국 ICT 인재 개발원</h2>
+		<h2>한국 ICT 인재 개발원</h2>
+		<h2 class="bg_01">한국 ICT 인재 개발원(bg)</h2>
+		<h2 class="bg_01">한국 ICT 인재 개발원(bg)</h2>
+		<h3 class="bg_01">한국 ICT 인재 개발원(bg)</h2>
+		<h3>한국 ICT 인재 개발원</h2>
+		<h3 class="bg_01 fg_01">한국 ICT 인재 개발원(bg, fg)</h2>
+		<h3>한국 ICT 인재 개발원</h2>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>java script 기본</title>
+		<script type="text/javascript">
+			/*태그 안에 content를 변경하는 함수*/
+			function setMsg() {
+				document.getElementById('memo3').innerHTML=Date();
+			}
+			/*id를 통해 태그의 style을 바꾸는 함수*/
+			function setMsg2() {
+				document.getElementById('memo4').style.fontSize="25px";
+				document.getElementById('memo4').style.color="red";
+				document.getElementById('memo4').style.backgroundColor="yellow";
+			}
+			/*모든 스타일 지우기*/
+			function setMsg3() {
+				document.getElementById('memo4').style="none";
+			}
+			
+			/*id를 통해 src속성을 변경하는 함수*/
+			function img_on() {
+				document.getElementById('img').src="../images/img06_2.gif";
+			}
+			function img_off() {
+				document.getElementById('img').src="../images/img06_1.gif";
+			}
+		</script>
+	</head>
+	<body>
+		<!--
+		javascript는 <script>태그에서 정의하고 사용된다.
+		head와 body 태그에 모두 사용 가능하다.
+		
+		태그 속성 중 onXXX() 속성은 javascript의 function()을 호출하는 것이다.
+		-->
+		<h2>자바 스크립트 사용</h2>
+		<p>자바스크립트를 이용해서 html 텍스트 넣기</p>
+		<hr>
+		<p id="memo">Memo</p>
+		
+		<!--
+		script태그는 작성된 위치보다 위에 선택자가 정의되어 있어야한다.
+		즉, 대상의 스크립트는 왠만하면 밑에다 작성하자
+		또한 body와 head에도 작성할 수 있지만 서로 다른 영역으로 인식하기 때문에 head에 작성해도 body에 적용되지 않는다.
+		-->
+		<script type="text/javascript">
+			document.getElementById("memo").innerHTML="Hello JavaScript";
+		</script>
+		<hr>
+		
+		<!-- 자바스크립트 함수 호출 및 버튼 태그 사용 -->
+		<!--버튼을 누르는 작업은 이미 html이 전부 실행된 뒤이기 때문에 id나 class대상이 선언된 뒤이다.
+		그래서 스크립트 대상보다 위인 head나 위쪽에 작성해도 된다.-->
+		
+		<!--자바스크립트를 전부 작성해서 사용-->
+		<!--Date()는 자바스크립트의 날짜 클래스이다.-->
+		<!--content 변경-->
+		<p id="memo2">memo2</p>
+		<button onclick="document.getElementById('memo2').innerHTML=Date()">
+		눌러주세요</button>
+		<hr>
+		
+		<!--함수를 설정해서 사용-->
+		<!--함수는 head태그에서 정의하고 사용할 수 있다.-->
+		<p id="memo3">memo2</p>
+		<button onclick="setMsg()">눌러주세요</button>
+		
+		<!--style 변경-->
+		<p id="memo4">한국 ICT 인재 개발원</p>
+		<button onclick="setMsg2()">스타일 변경</button>
+		<button onclick="setMsg3()">원래대로</button>
+		<hr>
+		
+		<!--src-->
+		<img id="img" src="../images/img06_1.gif">
+		<button onclick="img_on()">켜기</button>
+		<button onclick="img_off()">끄기</button>
+		
+	</body>
+</html>
