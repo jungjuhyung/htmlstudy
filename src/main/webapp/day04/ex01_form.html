@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<!--
+	form : 사용자들에게 정보를 입력 받아 서버에게 정보를 전달하는 역할을 함
+		   따라서 form은 입력 받은 정보를 받아서 전달하는 양식이다.
+	형식)
+	<form>[action=""][method=""][enctype=""]>
+		form elements(form 하위 태그들)
+	</form>
+	
+	1. action = "정보가 전달되는 페이지 경로(서버 경로)"
+	2. method = "정보를 전달하는 방식"
+		- get(생략) : 정보를 http의 헤더에 담아서 보낸다.
+					적은용량, 주소창에 보인다, 보안이 취약 ex) 검색에 많이 사용됨
+		- post    : 정보를 body에 담아서 보낸다.
+					대용량 가능, 주소창에 보이지 않는다, get보다는 느림 ex) 로그인
+	3. enctype => 평소에는 사용할 일 없음, 업드로할 때만 사용
+	4. form 하위 elements : input, label, select, textarea, fieldset, legend
+	5. input 태그 type속성값들 : text, button, radio, checkbox, file, hidden
+							 number, password, reset, submit,
+							 tel, color, date, email, time, url, week,
+							 range, seach, ...
+							 
+		input 속성 중 name 속성은 데이터를 전달 할 때 사용되는 name.
+		input 속성 중 value 속성은 데이터를 전달 할 때 사용되는 value.
+		
+		
+		-- 이렇게 정보를 제한해서 받는 것을 정규식을 작성한다고 한다.
+			옛날에는 백엔드 쪽 서버에서 정보를 모두 받고 걸러냈지만 서버에 과부하가 많이 온다.
+			그래서 프론트 쪽에서 정보를 제한적으로 받아서 서버의 과부하를 줄인다.
+		
+		** 데이터가 전달 될 때 ~~~~?name=value&name=value&name=value
+		
+		** checkbox속성값과 select태그 같은 경우 같은 이름이 여러개가 지정될 경우가 있다.
+			이 경우 서버에서는 배열로 받아서 처리한다.
+		** radio(여러개 중 1개 선택), checkbox(다중 선택) 속성의 checked 속성은 선택되었다라는 뜻이다.
+		** select(누르면 스크롤창이 나오면서 선택하는 것) : selected 속성을 지정하면 선택되었다는 뜻이다.
+					option 태그와 함께 사용
+						option의 속성들
+						size 속성 : 화면에 표시되는 갯수
+						multiple 속성 : ctrl키를 이용하면 동시에 여러개 선택 가능
+		** reset 속성은 form태그 안에 입력한 정보를 초기화 한다.(버튼 형태)
+		** submit 속성은 form 태그 정보를 action이 지정한 페이지로 정보를 전달한다.(버튼 형태)
+		** reset과 syubmit에 작성된 value는 서버에 전달되는 것이 아니라 버튼에 새겨지는 글자이다.
+		
+		** input type="text" 속성의 하위 속성
+			disabled : 커서가 들어가지 않아서 입력할 수 없다.(비활성화, 서버에 안넘어가짐)
+			readonly : 오직 읽기만 가능, 수정 안됨(커서만 안들어감, 서버에 기본값이나 null값은 넘어감)
+			placehoder : 힌트 표시(ex : 아이디를 입력하세요)
+			required : 반드시 입력해야 되는 태그에 붙이는 속성
+			pattern : [0-9(숫자만)] 숫자만 입력받는다, {3(자릿수)} n자리수만 입력받는다.
+						[A-za-z] 알파벳만 받겠다는 뜻
+			javascript 전까ㅓ지는 submit 속성을 이용해서 서버에 정보를 전달
+			javascript 에서는 input type=button 속성에 onclick을 이용하여
+			javascript 함수를 호출해서 전달 할 수 있다.
+	-->
+	
+	<!--get방식이기 때문에 입력한 값이 주소창에 표시된다.
+	value를 입력하지 않으면 null값으로 넘어간다.
+	그러나 나중에 이러한 정보를 vo에 담아서 보내기 때무에 null값은 vo에 담지기 않고 넘어가게 된다.-->
+	<form action="ex01_form.html" method="get">
+		
+		<p>
+		<!--required="required" 는 해당 input을 입력하지 않으면 submit이 작동하지 않고 경고창이 뜬다.
+		required의 값이 "required"이면 required만 써줘도 된다.-->
+		<!--maxlength=""는 한글 영어 상관없이 문자의 최대갯수를 지정한다.
+		최대갯수 이하의 값도 받을 수 있다.
+		maxlength는 문자를 제한하기 때문에 숫자형을 제한 할 수 없다.-->
+			아이디 : 
+			<!-- type="text" => 한줄 입력, 입력한 정보가 value가 된다.-->
+			<input type="text" name="id" maxlength="10" placeholder="아이디를 입력하세요" 
+			required="required">
+		</p>
+		
+		<p>
+		<!--type="password" 는 입력시 점으로 표시된다. -->
+		<!--readonly는 커서가 안들어가져서 입력은 못하지만 기본값이나 빈값이 서버에 넘어간다.-->
+		<!-- value="" 속성을 통해 기본값을 설정해줄 수 있다.  -->
+			<label>패스워드 : </label>
+			<input type="password" name="pw" maxlength="10" placeholder="패스워드를 입력하세요"
+			 value="aaaa" readonly>
+		</p>
+		
+		<!--label의 for와 input id의 이름이 같으면 라벨을 누를 시 텍스트 입력창으로 넘어간다.
+		여기서 input의 id속성은 특정 태그를 참조하는 속성의 id이다.-->
+		<!--disabled는 입력창이 비활성화되며 기본값을 포함하여 아예 서버에 넘어가지지 않는다.-->
+		<p>
+			<label for="username">이름 : </label>
+			<input type="text" id="username" name="username" maxlength="10" placeholder="이름을 입력하세요"
+			 value="bbbb" disabled>
+		</p>
+		
+		<p>
+		<!-- type="number" 로 작성하면 숫자만 입력할 수 있다.
+		e는 공학적 의미에서 작성 가능
+		type="number" 는 숫자라서 maxlength가 적용되지 않기 때문에
+		min=""과 max=""로 최소값과 최대값을 설정해줘야한다.
+		-->
+			<label for="userage">나이 : </label>
+			<input type="number" id="userage" name="userage" min="0" max="150">
+		</p>
+		<p>
+		<!-- pattern은 해당 양식에 정확히 맞추지 않으면 경고메세지가 뜬다. -->
+			<label for="birth">생년월일 : </label>
+			<input type="text" id="birth" name="birth" pattern="[0-9]{6}">
+		</p>
+		<p>
+		<!-- type="radio" 는 p태그 같은 부모 태그 안에 여러개가 있을 때 1개만 선택할 수 있다. -->
+		<!-- checked="checked" 사용 시 기본적으로 남자가 체크된 상태로 보여진다. checked만 작성해도 된다. -->
+			성별 : 
+			<input type="radio" name="gender" value="0" checked="checked"> 남자
+			<input type="radio" name="gender" value="1"> 여자
+		</p>
+		
+		<p>
+		<!-- type="checkbox" 는 부모태그 안에 여러개 있을 때 여러개를 선택 가능하다 -->
+		<!-- checkbox는 name이 같을 때 서버에서 배열로 값을 받게 된다. -->
+			취미 : 
+			<input type="checkbox" name="hobby" value="1"> 운동
+			<input type="checkbox" name="hobby" value="2"> 게임
+			<input type="checkbox" name="hobby" value="3"> 영화
+			<input type="checkbox" name="hobby" value="4"> 독서
+		</p>
+		
+		<p>
+		<!-- select태그는 스크롤버튼에서 하나를 선택하는 버튼을 생성해준다. -->
+		<!-- value를 입력하지 않으면 텍스트가 value가 된다-->
+			주소 : 
+			<select name="addr">
+				<option>::선택하세요::</option>
+				<option value="1">서울</option>
+				<option value="2">경기</option>
+				<option>제주</option>
+				<option>해외</option>
+				
+			</select>
+		</p>
+		
+		<p>
+		<!-- multiple 은 ctrl키를 통해 여러개 선택할 수 있다. -->
+		<!-- size는 스크롤버튼이 보여주는 갯수의 디폴트값이 4개이다. 이를 늘려줄 때 사용한다. -->
+			웹 브라우저 : 
+			<select name="browser" multiple size="5">
+				<option value="1">크롬</option>
+				<option value="2">사파리</option>
+				<option value="3">파이어폭스</option>
+				<option value="4">엣지</option>
+				<option value="5">오페라</option>
+				
+			</select>
+		</p>
+		
+		<!-- type="file" 은 누르면 파일 선택창이 뜬다 -->
+		<!-- type="file" 의 경우 form태그의 속성 중 
+		enctype=""을 사용해서 실제 파일을 io(inputobject)형태로 업로드해야한다. -->
+		<!-- 그러나 파일이 보내지는 것이 아닌 파일 이름만 value로 보내진다. -->
+		<!-- 나중에 서버에 보낼 때도 이름과 경로만 보내서 DB에 저장되게 된다. -->
+		 <p>파일 :  <input type="file" name="file"></p>
+		 <p>날짜 :  <input type="date" name="regdate"></p>
+		 <p>시간 :  <input type="time" name="time"></p>
+		 <p>컬러 :  <input type="color" name="color"></p>
+		 <p>범위 :  <input type="range" name="range"></p>
+		<p> <input type="reset" value="취소"> </p>
+		<p> <input type="submit" value="보내기"> </p>
+		
+		<!-- 텍스트를 입력해서 서버에 보낼 수 있는 창을 제공한다. -->
+		<!-- row와 col은 글씨 제한이 아닌 창의 크기를 지정하는 느낌이다. 테이블로 만들어지는 것이 아니다. -->
+		<!-- 이거는 간단한 모양이기 때문에 나중에 에디터라는 라이브러리를 통해 더 좋은걸 쓸 예정이다. -->
+		<p>자기소개서<br>
+			<textarea rows="4" cols="5" name="self"></textarea>
+		</p>
+	</form>
+	
+	
+</body>
+</html>

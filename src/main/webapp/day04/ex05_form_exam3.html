@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+		#con{
+			width: 500px;
+			margin: 50px auto;
+			border: 1px solid;
+			padding: 20px;
+		}
+		ul{
+			list-style-type: none;
+		}
+	</style>
+</head>
+<body>
+	<form action="#" method="get">
+		<div id="con">
+		<h1>프런트엔드 개발자 지원서</h1>
+		<p>HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p>
+		<hr>
+			<div>
+				<h4>개인정보</h4>
+				<ul>
+					<li>
+						<label for="uname">이름</label>
+						<input type="text" id="uname" name="uname" 
+						placeholder="공백없이 입력하세요">
+					</li>
+					<li>
+						<label for="phone">연락처</label>
+						<input type="text" id="phone" name="phone">
+					</li>
+				</ul>
+			</div>
+			<div>
+				<h4>지원분야</h4>
+				<ul>
+					<li>
+						<input type="radio" name="work" value="0">웹 퍼블리싱
+					</li>
+					<li>
+						<input type="radio" name="work" value="1">웹 애플리케이션 개발
+					</li>
+					<li>
+						<input type="radio" name="work" value="2">개발 환경 개선
+					</li>
+				</ul>
+			</div>
+			<div>
+				<h4>지원동기</h4>
+				<textarea rows="5" cols="60" placeholder="공백없이 입력하세요"></textarea>
+			</div>
+			<input type="submit" value="접수하기">
+			<input type="reset" value="다시 쓰기">
+		</div>
+	</form>
+</body>
+</html>
