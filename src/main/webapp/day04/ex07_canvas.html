@@ -61,8 +61,33 @@
 		
 		ctx.beginPath();
 		ctx.fillStyle="skyblue";
-		/*시작 x,y좌표는 좌측 상단 꼭지점 좌표이다.*/
+		/*시작 x,y좌표는 좌측 상단 꼭지점 좌표이다.
+		시작 좌표에서 우측하단으로 이동하면서 만든다.*/
 		ctx.fillRect(140,30,60,60);
+		
+		/* 원 arc(중심좌표x,y, 반지름, 시작각도, 끝각도) */
+		/* 각도 : Math.PI*2(기본 원) */
+		ctx.beginPath();
+		ctx.strokeStyle="orange"
+		ctx.arc(280,60,50,0,Math.PI*2);
+		ctx.stroke();
+		
+		ctx.beginPath();
+		ctx.fillStyle="magenta"
+		ctx.arc(280,60,40,0,Math.PI*2);
+		ctx.fill();
+		
+		// strokeText(text, 시작위치) 글자의 밑부분이 기준열의 시작 좌표이다.
+		// 글꼴을 지정해줘야 다른 속성이 적용된다.
+		ctx.beginPath();
+		ctx.font="50px 궁서체"
+		ctx.strokeText("Hello World", 10, 210)
+		
+		ctx.beginPath();
+		ctx.font="50px 궁서체"
+		ctx.fillText("Hello World", 10, 310)
+		
+		
 	</script>
 	
 </body>

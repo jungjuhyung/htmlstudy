@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<!--
+	SVG : W3C에서 권고하는 그래픽 처리
+		xml 기반으로 만든다.(즉, 태그를 사용해서 그래픽을 만든다.)
+	-->
+	<!-- 원 : circle 중심좌표(cx="", cy=""), 반지름(r="") -->
+	<svg style="width: 100; height: 100; border: 2px solid red">
+		<circle cx="50" cy="50" r="46" stroke="green" stroke-width="3" fill="yellow">	
+	</svg>
+	
+	<!-- 사각형 : rect 중심좌표(cx="", cy=""), 반지름(r="") -->
+	<svg style="width: 400; height: 100; border: 2px solid red">
+		<rect style="width: 200; height: 80; fill: tomato">	
+	</svg>
+	<!-- stroke형 사각형 -->
+	<svg style="width: 400; height: 100; border: 2px solid red">
+		<rect style="width: 100; height: 100; stroke:blue; stroke-width:4; fill: white">	
+	</svg>
+	
+	<!-- 사각형 => 둥근 모서리 사각형으로 변경 -->
+	<!-- rx, ry는 모서리의 둥근 정도이다. 
+	100, 100을 주면 완전히 기본 원이 된다.-->
+	<svg style="width: 400; height: 100; border: 2px solid red">
+		<rect x="5" y="5" rx="10" ry="10" 
+		style="width: 90; height: 90; stroke:blue; stroke-width:4; fill: white" >	
+	</svg>
+	
+	<!-- 타원형 그리기 -->
+	<!-- rx, ry를 100, 100값을 주면 기본원이 된다. -->
+	<svg style="width: 300; height: 200; border: 2px solid red">
+		<ellipse cx="150" cy="100" rx="70" ry="40">
+	</svg>
+</body>
+</html>
